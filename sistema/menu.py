@@ -63,17 +63,17 @@ while key != 'S':
         print("Compras") 
         print("1 - Realizar compra")
         print("2 - Ver compras realizadas")
-        sub = input("Digite a opção desejada? (V para voltar) ")
+        sub = input("Digite a opção desejada? (V para voltar) ").upper()
 
         if sub == '1':
             cpf_usuario = input("Digite o CPF do usuário: ")
-            carrinho_usuario = crud_compras.realizar_compra(cpf_usuario)
+            crud_compras.realizar_compra(cpf_usuario)
               
         elif sub == '2':
             cpf_usuario = input("Digite o CPF do usuário: ")
             crud_compras.ver_compras_realizadas(cpf_usuario)
-        else:
-            print("Opção inválida. Por favor, digite uma opção válida.")
+    else:
+        print("Opção inválida. Por favor, digite uma opção válida.")
 
 
 print("Tchau, tchau! Volte sempre!")
