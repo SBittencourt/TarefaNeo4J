@@ -28,19 +28,19 @@ while key != 'S':
             crud_usuario.read_usuario(cpf_usuario)
     
     
-    elif (key == '2'):
+    elif key == '2':
         print("Menu do Vendedor")
-        print("1-Criar Vendedor")
-        print("2-Ler Vendedor")
-        sub = input("Digite a opção desejada? (V para voltar) ")
-    
-        if (sub == '1'):
-            print("Criar Vendedor")
+        print("1 - Criar Vendedor")
+        print("2 - Visualizar Vendedor")
+        sub = input("Digite a opção desejada? (V para voltar) ").upper()
+
+        if sub == '1':
+            print("Criar vendedor")
             crud_vendedor.create_vendedor()
-        
-        elif (sub == '2'):
-            nomeVendedor = input("Ler vendedor, deseja algum nome especifico? ")
-            crud_vendedor.read_vendedor(nomeVendedor)
+            
+        elif sub == '2':
+            cpf_vendedor = input("Digite o CPF do vendedor para visualizar ou pressione Enter para visualizar todos: ")
+            crud_vendedor.read_vendedor(cpf_vendedor)
 
 
 
