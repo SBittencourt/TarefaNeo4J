@@ -44,18 +44,19 @@ while key != 'S':
 
 
 
-    elif (key == '3'):
-        print("Menu do Produto") 
+    elif key == '3':
+        print("Menu do Produto")
         print("1 - Criar Produto")
-        print("2 - Ver Produto")
-        sub = input("Digite a opção desejada? (V para voltar) ")
-        if (sub == '1'):
-            print("Criar Produto")
+        print("2 - Visualizar Produto")
+        sub = input("Digite a opção desejada? (V para voltar) ").upper()
+
+        if sub == '1':
+            print("Criar produto")
             crud_produto.create_produto()
             
-        elif (sub == '2'):
-            nomeProduto = input("Visualizar produtos, deseja algum nome especifico? Caso não, pressione enter")
-            crud_produto.read_produto(nomeProduto)
+        elif sub == '2':
+            cpf_vendedor = input("Digite o CPF do vendedor para visualizar os produtos ou pressione Enter para visualizar todos os produtos: ")
+            crud_produto.read_produto(cpf_vendedor)
 
 
     elif key == '4':
