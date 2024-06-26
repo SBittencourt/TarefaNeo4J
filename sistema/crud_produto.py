@@ -60,8 +60,15 @@ def get_produtos_by_vendedor(tx, cpf_vendedor):
         print(f"Nome: {produto['nome']}, Preço: {produto['preco']}, Marca: {produto['marca']}")
 
 def get_all_produtos(tx):
-    query = "MATCH (p:Produto) RETURN p"
+    query = """
+    MATCH (p:Produto)<-[:VENDE]-(v:Vendedor)
+    RETURN p, v
+    """
     result = tx.run(query)
     for record in result:
         produto = record["p"]
-        print(f"Nome: {produto['nome']}, Preço: {produto['preco']}, Marca: {produto['marca']}")
+        vendedor = record["v"]
+        print(f"Nome do Produto: {produto['nome']}, Preço: {produto['preco']}, Marca: {produto['marca']}")
+        print(f"Vendedor: {vendedor['nome']} | CPF: {vendedor['cpf']}")
+        print("----")
+
