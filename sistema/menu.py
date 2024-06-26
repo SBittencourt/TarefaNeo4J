@@ -1,5 +1,4 @@
 from connect_database import driver
-
 import crud_usuario
 import crud_produto
 import crud_vendedor
@@ -7,26 +6,26 @@ import crud_compras
 
 key = 0
 sub = 0
-while (key != 'S'):
+while key != 'S':
     print("1 - CRUD Usuário")
     print("2 - CRUD Vendedor")
     print("3 - CRUD Produto")
     print("4 - Compras")
     key = input("Digite a opção desejada? (S para sair) ").upper()
 
-    if (key == '1'):
+    if key == '1':
         print("Menu do Usuário")
         print("1 - Criar Usuário")
         print("2 - Visualizar Usuário")
-        sub = input("Digite a opção desejada? (V para voltar) ")
+        sub = input("Digite a opção desejada? (V para voltar) ").upper()
 
-        if (sub == '1'):
-            print("Criar usuario")
+        if sub == '1':
+            print("Criar usuário")
             crud_usuario.create_usuario()
             
-        elif (sub == '2'):
-            nomeUsuario = input("Visualizar usuário, deseja algum nome especifico? ")
-            crud_usuario.read_usuario(nomeUsuario)
+        elif sub == '2':
+            cpf_usuario = input("Digite o CPF do usuário para visualizar ou pressione Enter para visualizar todos: ")
+            crud_usuario.read_usuario(cpf_usuario)
     
     
     elif (key == '2'):
